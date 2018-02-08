@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 public class Book {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-
+private String status;
     private long id;
     @NotNull
     @Size(min=2)
@@ -71,5 +71,13 @@ public class Book {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

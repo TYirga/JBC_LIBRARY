@@ -18,8 +18,8 @@
             <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="/addedbooks">List Books</a>
             <a class="nav-item nav-link" href="/add">Add Books</a>
-            <a class="nav-item nav-link" href="/delete/{id}">Borrow a Book</a>
-            <a class="nav-item nav-link" href="borrowedbooks.html">Returning Books</a>
+            <a class="nav-item nav-link" href="/borrowing">Borrow a Book</a>
+
             <a class="nav-item nav-link disabled" href="#">Disabled</a>
         </div>
     </div>
@@ -29,14 +29,20 @@
         <th>Author</th>
         <th>Year Of Publication</th>
         <th>ISBN</th>
+        <th>Book Status</th>
 
     </tr>
+
     <tr th:each="book : ${books}">
+        <div th:if="${borrowing}!=null" th:inline="text">You borrowed [[${borrowing}]]</div>
         <td th:text="${book.title}"></td>
         <td th:text="${book.author}"></td>
         <td th:text="${book.year_of_publication}"></td>
         <td th:text="${book.isbn}"></td>
+        <td th:text="${book.status}"></td>
+
     </tr>
+
 </table>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
