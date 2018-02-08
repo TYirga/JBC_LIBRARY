@@ -13,12 +13,11 @@ public class MainController {
     @Autowired
     BookRepository bookRepository;
 
+
     @RequestMapping("/")
-    public String bookList(Model model) {
-        model.addAttribute("books", bookRepository.findAll());
+    public String bookList() {
         return "list";
     }
-
     @GetMapping("/add")
     public String libraryForm(Model model) {
         model.addAttribute("book", new Book());
@@ -31,14 +30,14 @@ public class MainController {
             return "libraryform";
         }
         bookRepository.save(book);
-        return "redirect:/";
+        return "listaddedbooks";
 
     }
 
-    @RequestMapping("/delete/{id}")
-    public String deleteBorrowedBook(@PathVariable("id") long id) {
-        bookRepository.delete(id);
-        return "redirect:/";
+    @GetMapping ("/addedbooks")
+    public String bookList(Model model) {
+        model.addAttribute("books", bookRepository.findAll());
+        return "listaddedbooks";
     }
 
 }
