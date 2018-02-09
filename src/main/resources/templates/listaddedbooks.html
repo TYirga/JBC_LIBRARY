@@ -34,7 +34,6 @@
     </tr>
 
     <tr th:each="book : ${books}">
-        <div th:if="${borrowing}!=null" th:inline="text">You borrowed [[${borrowing}]]</div>
         <td th:text="${book.title}"></td>
         <td th:text="${book.author}"></td>
         <td th:text="${book.year_of_publication}"></td>
@@ -49,3 +48,4 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
+

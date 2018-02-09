@@ -12,8 +12,9 @@ import javax.validation.constraints.Size;
 public class Book {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-private String status;
     private long id;
+
+    private String status;
     @NotNull
     @Size(min=2)
     private String title;
