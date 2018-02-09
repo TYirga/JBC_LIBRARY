@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<tr th:each="book: ${books}"></tr>
+<th th:each="book: ${books}"></th>
 This book has been borrowed<br />
 Title :<span th:text="${book.title}" ></span><br />
 Author:<span th:text="${book.author}"></span><br />
