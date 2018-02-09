@@ -19,6 +19,8 @@
             <a class="nav-item nav-link" href="/addedbooks">List Books</a>
             <a class="nav-item nav-link" href="/add">Add Books</a>
             <a class="nav-item nav-link" href="/borrowing">Borrow a Book</a>
+            <a class="nav-item nav-link" href="/returning">return a Book</a>
+
             <a class="nav-item nav-link disabled" href="#">Disabled</a>
         </div>
     </div>
@@ -38,7 +40,7 @@
         <td th:text="${book.isbn}"></td>
         <td th:text="${book.status}"></td>
         <td>
-            <a th:href="@{/borrow/{id}(id=${book.id})}">Borrow</a>
+            <a th:href="@{/return/{id}(id=${book.id})}">Return</a>
         </td>
     </tr>
 

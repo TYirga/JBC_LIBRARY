@@ -6,11 +6,10 @@
 </head>
 <body>
 <tr th:each="book: ${books}"></tr>
-This book has been borrowed<br />
+This book has been returned<br />
 Title :<span th:text="${book.title}" ></span><br />
 Author:<span th:text="${book.author}"></span><br />
 Year Of Publication:<span th:text="${book.year_of_publication}"></span><br />
 ISBN Number:<span th:text="${book.isbn}"></span><br />
-<a th:href="@{/return/{id}(id=${book.id})}">Return</a>
 </body>
 </html>

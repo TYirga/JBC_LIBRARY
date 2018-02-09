@@ -12,7 +12,8 @@ import javax.validation.Valid;
 public class MainController {
     @Autowired
     BookRepository bookRepository;
-
+    @Autowired
+    BookRepository rRepository;
 
     @RequestMapping("/")
     public String bookList() {
@@ -47,10 +48,21 @@ public class MainController {
         return "borrowing";
     }
 
-    @RequestMapping ("/update/{id}")
-    public String UpdateBook(@PathVariable("id")long id, Model model) {
+    @RequestMapping ("/borrow/{id}")
+    public String borrowBook(@PathVariable("id")long id, Model model) {
         model.addAttribute("book", bookRepository.findOne(id));
         return ("showbook");
+    }
+    @GetMapping("/returning")
+    public String returningBook(Model model) {
+    model.addAttribute("books", bookRepository.findAll());
+    return "returning";
+    }
+
+    @RequestMapping ("/return/{id}")
+   public String returnBook(@PathVariable("id")long id, Model model) {
+       model.addAttribute("book", bookRepository.findOne(id));
+       return ("returnform");
     }
 
 }
@@ -68,17 +80,3 @@ public class MainController {
 
 
 
-    /*@GetMapping("/borrowing")
-    public String getBook()
-    {
-        return "borrowingform";
-    }
-    @PostMapping("/borrowing")
-    public String showSearchResults(HttpServletRequest request, Model model)
-    {
-        String borrowS = request.getParameter("borrowing");
-        model.addAttribute("borrowing",borrowS);
-        model.addAttribute("books",bookRepository.findAllByAuthorIgnoreCase(borrowS));
-        return "listaddedbooks";
-        //return "list";*/
-// }
